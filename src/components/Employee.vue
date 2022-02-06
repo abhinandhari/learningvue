@@ -5,19 +5,12 @@ export default({
   components: { ModifyEmployee},
   data(){
     return{
-    employeelist:[
-      {fname:"Abhinand Hari", role:"Admin" , active:true},
-      {fname:"Abhiram Manohar" , role:"Tech Support" , active:true},
-      {fname:"Nithin Jayashankar" , role:"Tech Support" , active:false},
-      {fname:"Sameera Singh" , role:"Project Manager" , active:true},
-      {fname:"Sarvajit Ramesh" , role:"Software Developer" , active:false}
-    ]
+      item:''
   }
 },
 computed:{
-  myProperty(){
-    alert('Hi!')
-    return 'Alerted the Horde'
+  employeelist(){
+    return this.$store.state.employeelist;
   }
 }
 }
@@ -30,7 +23,7 @@ computed:{
     <label v-for='emp in employeelist' v-bind:key='emp.active'>
     <div class="card">
     <div class="container">
-      <b>{{emp.fname}}</b>
+      <b>{{emp.name}}</b>
       <br>
       {{emp.role}}
     </div>
